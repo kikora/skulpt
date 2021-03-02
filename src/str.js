@@ -990,6 +990,11 @@ Sk.builtin.str.prototype["isalnum"] = new Sk.builtin.func(function (self) {
     return new Sk.builtin.bool( self.v.length && !/[^a-zA-Z0-9]/.test(self.v));
 });
 
+Sk.builtin.str.prototype["isidentifier"] = new Sk.builtin.func(function (self) {
+    Sk.builtin.pyCheckArgsLen("isidentifier", arguments.length, 1, 1);
+    return new Sk.builtin.bool( Sk.token.isIdentifier(self.v));
+});
+
 // does not account for unicode numeric values
 Sk.builtin.str.prototype["isnumeric"] = new Sk.builtin.func(function (self) {
     Sk.builtin.pyCheckArgsLen("isnumeric", arguments.length, 1, 1);
